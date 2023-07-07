@@ -59,19 +59,19 @@ void setup()
 
   // Show EEPROM contents before cloning
   Serial.println("PREVIOUS DATA:");
-  //readEEPROM(srceeprom, "SOURCE EEPROM");
+  readEEPROM(srceeprom, "SOURCE EEPROM");
   readEEPROM(dsteeprom, "DESTINATION EEPROM");
 
   // clone EEPROM
-  //Serial.println(" ");
-  //Serial.println("CLONING DATA...");
-  //transferEEPROM(srceeprom, dsteeprom);
+  Serial.println(" ");
+  Serial.println("CLONING DATA...");
+  transferEEPROM(srceeprom, dsteeprom);
 
   // Show EEPROM contents after cloning
-  //Serial.println(" ");
-  //Serial.println("CURRENT DATA:");
-  //readEEPROM(srceeprom, "SOURCE EEPROM");
-  //readEEPROM(dsteeprom, "DESTINATION EEPROM");
+  Serial.println(" ");
+  Serial.println("CURRENT DATA:");
+  readEEPROM(srceeprom, "SOURCE EEPROM");
+  readEEPROM(dsteeprom, "DESTINATION EEPROM");
 
   Serial.println("PROGRAM DONE!!!");
   Serial.flush();
@@ -117,7 +117,7 @@ void readEEPROM(M93Cx6 &eeprom, String name)
       if ((lineCount+1)*16 == EEPROM_SIZE)
         break;
       Serial.println("");
-      //sprintf(buffer, "%5d", ++lineCount * 16);
+      sprintf(buffer, "%5d", ++lineCount * 16);
       Serial.print(buffer);
     }
     else if (i % 4 == 3)
